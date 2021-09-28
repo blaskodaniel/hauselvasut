@@ -24,32 +24,41 @@ def index():
 
 @app.route("/status")
 def status():
-    return_list = []
-    for train in train_list:
-        return_list.append(train.status())
+    try:
+        return_list = []
+        for train in train_list:
+            return_list.append(train.status())
 
-    json_string = json.dumps(return_list) 
-    return Response(json_string, mimetype='application/json')
+        json_string = json.dumps(return_list) 
+        return Response(json_string, mimetype='application/json')
+    except:
+        return Response('{"success":"false"}', mimetype='application/json')
 
 @app.route("/start/<trainid>")
 def start(trainid):
-    train = next((x for x in train_list if x.id == int(trainid)), None)
-    
-    # start threading and add to thread pool
-    thread = threading.Thread(target=train.run, args=())
-    thread.setDaemon(True)  # Daemonize thread
-    thread.setName(str(f"train-{train.id}"))
-    thread.start()   # Start
+    try:
+        train = next((x for x in train_list if x.id == int(trainid)), None)
+        
+        # start threading and add to thread pool
+        thread = threading.Thread(target=train.run, args=())
+        thread.setDaemon(True)  # Daemonize thread
+        thread.setName(str(f"train-{train.id}"))
+        thread.start()   # Start
 
-    json_string = json.dumps(train.__dict__)
-    return Response(json_string, mimetype='application/json') 
+        json_string = json.dumps(train.__dict__)
+        return Response(json_string, mimetype='application/json') 
+    except:
+        return Response('{"success":"false"}', mimetype='application/json')
 
 @app.route("/stop/<trainid>")
 def stop(trainid):
-    train = next((x for x in train_list if x.id == int(trainid)), None)
-    train.setRun(0)
-    json_string = json.dumps(train.__dict__)
-    return Response(json_string, mimetype='application/json') 
+    try:
+        train = next((x for x in train_list if x.id == int(trainid)), None)
+        train.setRun(0)
+        json_string = json.dumps(train.__dict__)
+        return Response(json_string, mimetype='application/json') 
+    except:
+        return Response('{"success":"false"}', mimetype='application/json')
 
 @app.route("/getthreadings")
 def getthreadings():
@@ -62,12 +71,15 @@ def getthreadings():
 
 @app.route("/controller", methods=['POST'])
 def settrain():
-    # curl -X POST --header "Content-Type: application/json" --data '{"id": "410", "name": "zonazo", "speed":"0.2","direction":"1"}' http://127.0.0.1:5000/controller
-    postdata = request.json
-    newSpeed = postdata["speed"]
-    newDirection = postdata["direction"]
-    trainId = postdata["id"]
-    train = next((x for x in train_list if x.id == int(trainId)), None)
-    train.setSpeed(float(newSpeed))
-    train.setDirection(int(newDirection))
-    return 'ok\n' 
+    try:
+        # curl -X POST --header "Content-Type: application/json" --data '{"id": "410", "name": "zonazo", "speed":"0.2","direction":"1"}' http://127.0.0.1:5000/controller
+        postdata = request.json
+        newSpeed = postdata["speed"]
+        newDirection = postdata["direction"]
+        trainId = postdata["id"]
+        train = next((x for x in train_list if x.id == int(trainId)), None)
+        train.setSpeed(float(newSpeed))
+        train.setDirection(int(newDirection))
+        return 'ok\n' 
+    except:
+        return Response('{"success":"false"}', mimetype='application/json')
