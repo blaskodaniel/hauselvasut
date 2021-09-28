@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:import/react",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["import", "prettier", "react", "jest"],
+  "rules": {
+    "import/default": 2,
+    "import/export": 2,
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "no-shadow": ["error", { "allow": ["done"] }],
+    "no-underscore-dangle": 0,
+    "no-unused-vars": "warn",
+    "no-var": "error",
+    "no-debugger": "off",
+    "no-else-return": ["error", { "allowElseIf": true }],
+    "prefer-const": "error",
+    "no-param-reassign": ["error", { "props": false }],
+    "prettier/prettier": "error",
+    "react/destructuring-assignment": [0],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react/no-danger": "off",
+    "react/display-name": [0],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+      }
+    ]
+  }
+}

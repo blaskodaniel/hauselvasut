@@ -1,0 +1,25 @@
+.ant-btn {
+  background: $button-color;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background: $button-color;
+  }
+
+  &:focus {
+    background: $button-color;
+  }
+}
+
+.ant-statistic-title {
+  color: #fff;
+}
+
+.ant-statistic-content {
+  color: #fff;
+}
+
+.ant-divider {
+  border-top: 1px solid rgb(255 215 215 / 6%);
+}

@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  height: 100vh;
+  grid-template:
+    'header header header' $header-height
+    'main main main' auto
+    'footer footer footer' $footer-height;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: $header-color;
+}
+
+main {
+  grid-area: main;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $footer-color;
+}
