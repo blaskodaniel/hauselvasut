@@ -21,7 +21,14 @@ pip install -U flask-cors
 Lépjünk be a **server** mappába és onnan adjuk ki a parancsokat:
 
 ```python
+Linux:
 export FLASK_APP=API
+
+Windows:
+set FLASK_APP=API
+```
+
+```python
 flask run
 ```
 
@@ -43,4 +50,12 @@ npm install
 
 ```javascript
 npm start
+```
+
+## Környezeti változók
+
+A _website/.env.development_ fájlban lehet megadni, hogy a python webserver milyen URL:PORT-on fut.
+
+```
+REACT_APP_BASEURL=http://localhost:5000
 ```
