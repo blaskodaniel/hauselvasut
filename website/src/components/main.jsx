@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Empty, Slider, Spin, Switch, notification } from 'antd';
+import { Empty, Spin, notification } from 'antd';
 import { GetStatus } from '../services/functions';
 import TrainInfoBox from './train-info-box';
 
