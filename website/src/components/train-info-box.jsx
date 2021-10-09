@@ -89,9 +89,9 @@ const TrainInfoBox = ({ train }) => {
         </div>
         <div className="right">
           <Switch
-            checked={!!trainState.direction}
+            checked={trainState.direction === 1}
             size="small"
-            onChange={(value) => onChangeHanlder(value ? 1 : 0, 'direction')}
+            onChange={(value) => onChangeHanlder(value ? 1 : -1, 'direction')}
           />
         </div>
       </div>

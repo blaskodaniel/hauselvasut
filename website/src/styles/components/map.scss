@@ -1,0 +1,24 @@
+.map {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  path {
+    fill: #fff;
+    transition: all 0.3s ease-in;
+  }
+  g {
+    cursor: pointer;
+  }
+  g#section1:hover path {
+    fill: rgb(185, 185, 226);
+  }
+  g#section2:hover path {
+    fill: rgb(185, 185, 226);
+  }
+  g#section3:hover path {
+    fill: rgb(185, 185, 226);
+  }
+  g#section4:hover path {
+    fill: rgb(185, 185, 226);
+  }
+}

@@ -60,6 +60,7 @@ def stop(trainid):
     except:
         return Response('{"success":"false"}', mimetype='application/json')
 
+# for debug
 @app.route("/getthreadings")
 def getthreadings():
     threadinglist = []
