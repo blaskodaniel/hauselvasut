@@ -25,7 +25,7 @@ thread.setDaemon(True)
 thread.setName(str(f"sensor-{sensor.id}"))
 thread.start()
 
-majd a sensor1.value -ban lesz elméletileg az érték ami a szenzortól jön, ezt kell leadni a kliensnek
+majd a sensor1.getValue() függvény fogja visszaadni elméletileg az értéket, ami a szenzortól jön, ezt kell leadni a kliensnek
 
 """
 
